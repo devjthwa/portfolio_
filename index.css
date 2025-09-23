@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+}
+body.light .bg-subtle-pattern {
+    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+body.dark .bg-subtle-pattern {
+    background-image: radial-gradient(#4b5563 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+#mobile-menu.open {
+    max-height: 500px; /* Adjust as needed, just needs to be large enough to show all content */
+    opacity: 1;
+}

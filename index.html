@@ -4,56 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Jethva | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* New subtle pattern for the background */
+        body.light .bg-subtle-pattern {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        body.dark .bg-subtle-pattern {
+            background-image: radial-gradient(#4b5563 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        /* Simple CSS for the mobile menu slide-down animation */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 500px; /* Adjust as needed, just needs to be large enough to show all content */
+            opacity: 1;
+        }
+    </style>
+    <!-- Typed.js Library for the typing effect -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 bg-subtle-pattern">
 
+    <!-- Header Section -->
     <header class="bg-white dark:bg-gray-800 shadow-xl sticky top-0 z-50 rounded-b-3xl transition-colors duration-500">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-xl md:text-3xl font-bold text-indigo-600 dark:text-indigo-400">Dev Jethva</h1>
             <nav class="flex items-center space-x-4 md:space-x-6">
-                
+                <!-- Desktop Navigation Links -->
                 <ul class="hidden md:flex space-x-6 text-gray-600 dark:text-gray-400 font-medium text-sm md:text-base">
                     <li><a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">About</a></li>
                     <li><a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Experience</a></li>
                     <li><a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Projects</a></li>
                     <li><a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Contact</a></li>
-                    <li><a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Blog</a></li>
                 </ul>
 
+                <!-- Mobile Menu Button (Hamburger) -->
                 <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
+                <!-- Theme Toggle Button -->
+                <!-- <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
                     <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-gray-800 dark:text-gray-100 hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                     <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-gray-800 dark:text-gray-100"><path d="M12 3a6.5 6.5 0 1 0 6.5 6.5A4.6 4.6 0 0 1 12 3z"/></svg>
-
-                </button>
+                </button> -->
             </nav>
         </div>
+        <!-- Mobile Menu Container -->
         <div id="mobile-menu" class="md:hidden bg-white dark:bg-gray-800 transition-all duration-300">
             <ul class="flex flex-col items-center py-4 space-y-2 text-gray-600 dark:text-gray-400 font-medium">
                 <li><a href="#about" class="block w-full text-center py-2 hover:text-indigo-600 dark:hover:text-indigo-400">About</a></li>
                 <li><a href="#experience" class="block w-full text-center py-2 hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a></li>
                 <li><a href="#projects" class="block w-full text-center py-2 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a></li>
                 <li><a href="#contact" class="block w-full text-center py-2 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a></li>
-                <li><a href="blog.html" class="block w-full text-center py-2 hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a></li>
             </ul>
         </div>
     </header>
 
+    <!-- Main Content Container -->
     <main class="container mx-auto px-4 md:px-6 py-8 md:py-16 max-w-6xl">
 
+        <!-- About Section - Creative Layout -->
         <section id="about" class="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-3xl shadow-2xl mb-8 md:mb-16 transition-colors duration-500">
             <div class="md:flex md:items-center md:space-x-12">
+                <!-- Profile photo section -->
                 <div class="flex-shrink-0 mb-6 md:mb-0 transform hover:scale-105 transition-transform duration-300">
                     <img src="./Images/dev.jpg" alt="Dev Jethva's profile photo" class="rounded-full w-40 h-40 md:w-64 md:h-64 object-cover shadow-2xl mx-auto border-4 border-indigo-600 dark:border-indigo-400 p-1">
                 </div>
                 <div class="text-center md:text-left">
                     <h2 class="text-2xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-2">Hello, I'm Dev Jethva</h2>
+                    <!-- Element for the Typed.js animation -->
                     <p class="text-base md:text-2xl font-semibold mb-4 md:mb-6 text-indigo-600 dark:text-indigo-400"><span id="typed-element"></span></p>
                     <p class="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                         I am a passionate professional specializing in <i>Python development </i>and <i>data analysis</i>. My work focuses on building efficient and scalable solutions, from automating complex workflows to extracting powerful insights from large datasets. With a keen eye for detail and a drive for continuous learning, I am dedicated to creating impactful and innovative projects.
@@ -65,9 +97,11 @@
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-3xl shadow-2xl mb-8 md:mb-16 transition-colors duration-500">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 text-center border-b-2 border-indigo-600 dark:border-indigo-400 pb-4">Experience</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                <!-- Python Developer Role -->
                 <div class="bg-gray-50 dark:bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:translate-y-[-5px]">
                     <h3 class="text-lg md:text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Python Developer</h3>
                     <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">2021 - Present</p>
@@ -77,6 +111,7 @@
                         <li>Engaged in personal projects to continuously learn and apply new Python libraries and frameworks.</li>
                     </ul>
                 </div>
+                <!-- Data Analyst Role -->
                 <div class="bg-gray-50 dark:bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:translate-y-[-5px]">
                     <h3 class="text-lg md:text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Data Analyst</h3>
                     <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">2024 - Present | Sanskar Management</p>
@@ -89,9 +124,11 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-3xl shadow-2xl mb-8 md:mb-16 transition-colors duration-500">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 text-center border-b-2 border-indigo-600 dark:border-indigo-400 pb-4">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Project Card 1 -->
                 <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:scale-105">
                     <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2">IMS - Inventory Management System</h3>
                     <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4">A Python application that manages inventory levels, orders, and sales data for a retail business with the help of Tkinter Library</p>
@@ -99,6 +136,7 @@
                         <a href="https://github.com/devjthwa/Inventory-Management-System-Tkinter" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 font-medium text-sm">View on GitHub</a>
                     </div>
                 </div>
+                <!-- Project Card 2 -->
                 <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:scale-105">
                     <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2">Delicacy Restaurant Management System</h3>
                     <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4">A Real time comprehensive restaurant management system built with MERN (mongoDB, React, Express, NodeJS) stack technology. This was a final semister group project for University.</p>
@@ -106,6 +144,7 @@
                         <a href="https://github.com/SajidhussainAmbaliyasana/Order-Management-System" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 font-medium text-sm">View on GitHub</a>
                     </div>
                 </div>
+                <!-- Project Card 3 -->
                 <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:scale-105">
                     <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2">Online Exam Management System</h3>
                     <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4">A Java application system made using (Servlets, JSP, mongoDB) for managing online exams, including features for scheduling, proctoring, and managing papers, faculties, subjects, stuedents, etc data.</p>
@@ -115,6 +154,7 @@
                 </div>
             </div>
                 <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 md:gap-8 mt-3">
+                    <!-- Project Card 4 -->
                     <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors duration-300 transform hover:scale-105">
                         <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2">i-notebook</h3>
                         <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4">A MERN stack application system for managing notes, including features for creating, editing, and organizing notes, as well as user authentication and real-time collaboration.</p>
@@ -125,6 +165,7 @@
                 </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-3xl shadow-2xl text-center transition-colors duration-500">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 border-b-2 border-indigo-600 dark:border-indigo-400 pb-4">Let's Connect</h2>
             <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect on social media.</p>
@@ -175,11 +216,104 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 dark:bg-gray-900 text-white text-center p-4 mt-8 transition-colors duration-500">
-        <p class="text-xs md:text-sm">© 2025 Dev Jethva. All rights reserved.</p>
+        <p class="text-xs md:text-sm">&copy; 2025 Dev Jethva. All rights reserved.</p>
     </footer>
-    
-    <script src="./index.js"></script>
 
+    <!-- Script to initialize Typed.js -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        new Typed('#typed-element', {
+          strings: ['Python Developer', 'Data Analyst', 'AI/ML Enthusiast'],
+          typeSpeed: 60,
+          loop: true,
+          backDelay: 1500,
+          backSpeed: 40,
+        });
+      });
+    </script>
+    
+    <!-- Script for Theme Toggle -->
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+
+      // Function to set the theme
+      function setTheme(theme) {
+          if (theme === 'dark') {
+              htmlElement.classList.add('dark');
+              document.body.classList.remove('light');
+              document.body.classList.add('dark');
+              localStorage.setItem('theme', 'dark');
+          } else {
+              htmlElement.classList.remove('dark');
+              document.body.classList.remove('dark');
+              document.body.classList.add('light');
+              localStorage.setItem('theme', 'light');
+          }
+      }
+
+      // Check for saved theme preference or system preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+      setTheme(initialTheme);
+      
+      // Update icon based on current theme
+      function updateIcons() {
+          const isDark = htmlElement.classList.contains('dark');
+          const sunIcon = document.getElementById('sun-icon');
+          const moonIcon = document.getElementById('moon-icon');
+          
+          if (isDark) {
+              sunIcon.classList.remove('hidden');
+              moonIcon.classList.add('hidden');
+          } else {
+              sunIcon.classList.add('hidden');
+              moonIcon.classList.remove('hidden');
+          }
+      }
+
+      updateIcons();
+
+      themeToggle.addEventListener('click', () => {
+          const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+          setTheme(newTheme);
+          updateIcons();
+      });
+    </script>
+
+    <!-- Script for Smooth Scrolling and Mobile Menu Toggle -->
+    <script>
+        // Smooth Scrolling Script
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close the mobile menu if it's open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                }
+
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle Script
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
